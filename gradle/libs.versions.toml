@@ -1,4 +1,12 @@
 [versions]
+# CORREGGI QUESTE VERSIONI:
+agp-version = "8.9.3"  # OK, mantieni 8.9.3
+kotlin-version = "1.9.0"  # CAMBIA da 2.3.0 a 1.9.0 (2.3.0 è per AGP 9.0+)
+compileSdk = "36"  # AGGIUNGI questa linea
+minSdk = "26"
+targetSdk = "36"   # AGGIUNGI questa linea
+
+# Mantieni le altre versioni...
 aboutlib_version = "11.6.3"
 leakcanary = "2.14"
 moko = "0.24.5"
@@ -11,11 +19,18 @@ sqlite = "2.4.0"
 voyager = "1.0.1"
 spotless = "7.0.2"
 ktlint-core = "1.5.0"
+core-ktx-version = "1.17.0"  # Richiede compileSdk 36 - OK
+appcompat-version = "1.7.1"
+compose-bom-version = "2024.09.00"
+tv-foundation-version = "1.0.0-alpha12"
+tv-material-version = "1.0.1"
+lifecycle-runtime-ktx-version = "2.10.0"
+activity-compose-version = "1.12.2"  # Richiede compileSdk 36 - OK
 
 [libraries]
 desugar = "com.android.tools:desugar_jdk_libs:2.1.5"
 android-shortcut-gradle = "com.github.zellius:android-shortcut-gradle-plugin:0.1.2"
-google-services-gradle = "com.google.gms:google-services:4.4.2"
+google-services-gradle = "com.google.gms:google-services:4.4.4"
 
 nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd-version" }
 rxjava = "io.reactivex:rxjava:1.3.8"
@@ -24,13 +39,13 @@ okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp_ve
 okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp_version" }
 okhttp-brotli = { module = "com.squareup.okhttp3:okhttp-brotli", version.ref = "okhttp_version" }
 okhttp-dnsoverhttps = { module = "com.squareup.okhttp3:okhttp-dnsoverhttps", version.ref = "okhttp_version" }
-okio = "com.squareup.okio:okio:3.10.2"
+okio = "com.squareup.okio:okio:3.16.4"
 
 conscrypt-android = "org.conscrypt:conscrypt-android:2.5.3"
 
 quickjs-android = "app.cash.quickjs:quickjs-android:0.9.2"
 
-jsoup = "org.jsoup:jsoup:1.19.1"
+jsoup = "org.jsoup:jsoup:1.22.1"
 
 disklrucache = "com.jakewharton:disklrucache:2.0.2"
 unifile = "com.github.tachiyomiorg:unifile:e0def6b3dc"
@@ -61,7 +76,7 @@ natural-comparator = "com.github.gpanther:java-nat-sort:natural-comparator-1.1"
 richtext-commonmark = { module = "com.halilibo.compose-richtext:richtext-commonmark", version.ref = "richtext" }
 richtext-m3 = { module = "com.halilibo.compose-richtext:richtext-ui-material3", version.ref = "richtext" }
 
-material = "com.google.android.material:material:1.12.0"
+material = "com.google.android.material:material:1.13.0"
 flexible-adapter-core = "com.github.arkon.FlexibleAdapter:flexible-adapter:c8013533"
 photoview = "com.github.chrisbanes:PhotoView:2.3.0"
 directionalviewpager = "com.github.tachiyomiorg:DirectionalViewPager:1.0.0"
@@ -76,7 +91,7 @@ swipe = "me.saket.swipe:swipe:1.3.0"
 
 moko-core = { module = "dev.icerock.moko:resources", version.ref = "moko" }
 
-logcat = "com.squareup.logcat:logcat:0.1"
+logcat = "com.squareup.logcat:logcat:0.4"
 
 firebase-analytics = "com.google.firebase:firebase-analytics-ktx:22.4.0"
 
@@ -122,11 +137,27 @@ cast-play-services = "com.google.android.gms:play-services-cast-framework:22.0.0
 
 spotless-gradle = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 ktlint-core = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint-core" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx-version" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat-version" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom-version" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+tv-foundation = { group = "androidx.tv", name = "tv-foundation", version.ref = "tv-foundation-version" }
+tv-material = { group = "androidx.tv", name = "tv-material", version.ref = "tv-material-version" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx-version" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose-version" }
 
 [plugins]
 aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutlib_version" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 moko = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }
+androidApplication = { id = "com.android.application", version.ref = "agp-version" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
+kotlinCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 
 [bundles]
 okhttp = ["okhttp-core", "okhttp-logging", "okhttp-brotli", "okhttp-dnsoverhttps"]

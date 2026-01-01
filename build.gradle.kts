@@ -1,8 +1,8 @@
 buildscript {
     repositories {
-        google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
+        google()
     }
     dependencies {
         classpath(libs.android.shortcut.gradle)
@@ -16,6 +16,9 @@ plugins {
     alias(libs.plugins.aboutLibraries) apply false
     alias(libs.plugins.moko) apply false
     alias(libs.plugins.sqldelight) apply false
+    id(libs.plugins.androidApplication.get().pluginId) apply false
+    id(libs.plugins.kotlinAndroid.get().pluginId) apply false
+    id(libs.plugins.kotlinCompose.get().pluginId) apply false
 }
 
 tasks.register<Delete>("clean") {

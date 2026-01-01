@@ -7,11 +7,17 @@ import okhttp3.HttpUrl
 
 class AndroidCookieJar : CookieJar {
 
-    private val manager = CookieManager.getInstance()
+    // Modifica qui: rendi manager nullable e cattura l'eccezione
+    private val manager: CookieManager? = try {
+        CookieManager.getInstance()
+    } catch (e: Throwable) {
+        null  // WebView non disponibile su Android TV
+    }
 
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-        val urlString = url.toString()
+        if (manager == null) return  // Salta se WebView non disponibile
 
+        val urlString = url.toString()
         cookies.forEach { manager.setCookie(urlString, it.toString()) }
     }
 
@@ -20,6 +26,8 @@ class AndroidCookieJar : CookieJar {
     }
 
     fun get(url: HttpUrl): List<Cookie> {
+        if (manager == null) return emptyList()  // Ritorna lista vuota su TV
+
         val cookies = manager.getCookie(url.toString())
 
         return if (cookies != null && cookies.isNotEmpty()) {
@@ -30,6 +38,8 @@ class AndroidCookieJar : CookieJar {
     }
 
     fun remove(url: HttpUrl, cookieNames: List<String>? = null, maxAge: Int = -1): Int {
+        if (manager == null) return 0  // Non fare nulla su TV
+
         val urlString = url.toString()
         val cookies = manager.getCookie(urlString) ?: return 0
 
@@ -49,11 +59,13 @@ class AndroidCookieJar : CookieJar {
     }
 
     fun removeAll() {
-        manager.removeAllCookies {}
+        manager?.removeAllCookies {}  // Solo se manager esiste
     }
 
     // TLMR -->
     fun addAll(url: HttpUrl, cookies: List<Cookie>) {
+        if (manager == null) return  // Salta su TV
+
         val urlString = url.toString()
 
         // Get existing cookies for the URL
