@@ -25,7 +25,8 @@ compose-bom-version = "2024.09.00"
 tv-foundation-version = "1.0.0-alpha12"
 tv-material-version = "1.0.1"
 lifecycle-runtime-ktx-version = "2.10.0"
-activity-compose-version = "1.12.2"  # Richiede compileSdk 36 - OK
+activity-compose-version = "1.12.2"
+navigationComposeVersion = "2.9.6"  # Richiede compileSdk 36 - OK
 
 [libraries]
 desugar = "com.android.tools:desugar_jdk_libs:2.1.5"
@@ -150,6 +151,7 @@ tv-foundation = { group = "androidx.tv", name = "tv-foundation", version.ref = "
 tv-material = { group = "androidx.tv", name = "tv-material", version.ref = "tv-material-version" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx-version" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose-version" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion" }
 
 [plugins]
 aboutLibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutlib_version" }
