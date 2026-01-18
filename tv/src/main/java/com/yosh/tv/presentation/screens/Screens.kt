@@ -2,7 +2,7 @@ package com.yosh.tv.presentation.screens
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.CalendarMonth
 
 
 enum class Screens (
@@ -10,13 +10,13 @@ enum class Screens (
     val isTabItem: Boolean = false,
     val tabIcon : ImageVector? = null
 ){
-    Profile,
     Library(isTabItem = true),
-    History(isTabItem = true),
     Browse(isTabItem = true),
     Updates(isTabItem = true),
+    History(isTabItem = true),
     Dashboard,
-    Calendar(isTabItem = true, tabIcon = Icons.Default.Info);
+    Calendar(isTabItem = true, tabIcon = Icons.Default.CalendarMonth),
+    Profile;
 
 
     operator fun invoke(): String {

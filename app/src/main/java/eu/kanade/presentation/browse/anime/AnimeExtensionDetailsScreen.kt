@@ -200,7 +200,7 @@ private fun AnimeExtensionDetails(
         ) { source ->
             SourceSwitchPreference(
                 modifier = Modifier.animateItem(),
-                source = source,
+                 source = source,
                 onClickSourcePreferences = onClickSourcePreferences,
                 onClickSource = onClickSource,
             )
