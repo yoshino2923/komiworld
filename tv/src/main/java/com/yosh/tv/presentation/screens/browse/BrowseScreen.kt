@@ -22,6 +22,8 @@ import androidx.tv.material3.ListItemDefaults
 import androidx.tv.material3.Text
 import com.yosh.tv.presentation.screens.browse.ExampleAction
 import com.yosh.tv.presentation.screens.browse.ExamplesScreenWithDottedBackground
+import com.yosh.tv.presentation.screens.browse.extension.TvAnimeExtensionsScreen
+import com.yosh.tv.presentation.screens.browse.extension.fakeStateForTvAnimeExtensionScreen
 
 
 @Composable
@@ -77,51 +79,20 @@ fun BrowseScreen() {
         ExampleAction(
             title = "All extensions",
             content = {
-                Column(
-                    Modifier.width(300.dp).focusGroup(),
-                    verticalArrangement = Arrangement.spacedBy(30.dp)
-                ) {
-                    var selected1 by remember { mutableStateOf(false) }
-                    DenseListItem(
-                        selected = selected1,
-                        onClick = { selected1 = !selected1 },
-                        headlineContent = { Text("Favourites") },
-                        leadingContent = {
-                            Icon(
-                                imageVector = Icons.Filled.Favorite,
-                                contentDescription = null,
-                                modifier = Modifier.size(ListItemDefaults.IconSizeDense)
-                            )
-                        },
-                    )
-
-                    var selected2 by remember { mutableStateOf(false) }
-                    DenseListItem(
-                        selected = selected2,
-                        onClick = { selected2 = !selected2 },
-                        headlineContent = {
-                            Text(
-                                text = "Favourites",
-                            )
-                        },
-                        supportingContent = {
-                            Text(
-                                text = "You like this",
-                                modifier = Modifier.padding(top = 4.dp)
-                            )
-                        },
-                        leadingContent = {
-                            Icon(
-                                imageVector = Icons.Filled.Favorite,
-                                contentDescription = null,
-                                modifier = Modifier.size(ListItemDefaults.IconSizeDense)
-                            )
-                        },
-                    )
-                }
+                TvAnimeExtensionsScreen(
+                    state = fakeStateForTvAnimeExtensionScreen(),
+                    onClickUpdateAll = {},
+                    onRefresh = {},
+                    onClickItem = {},
+                    onLongClickItem = {},
+                    onClickCancel = {},
+                    onClickPrimaryAction = {},
+                    onClickSecondaryAction = {},
+                )
             }
         ),
     )
 
     ExamplesScreenWithDottedBackground(actions)
 }
+

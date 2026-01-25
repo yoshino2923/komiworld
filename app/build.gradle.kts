@@ -225,6 +225,7 @@ dependencies {
     implementation(androidx.biometricktx)
     implementation(androidx.constraintlayout)
     implementation(aniyomilibs.compose.constraintlayout)
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation(androidx.corektx)
     implementation(androidx.splashscreen)
     implementation(androidx.recyclerview)

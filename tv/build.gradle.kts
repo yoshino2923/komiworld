@@ -2,6 +2,7 @@ plugins {
     id(libs.plugins.androidApplication.get().pluginId)
     id(libs.plugins.kotlinAndroid.get().pluginId)
     id(libs.plugins.kotlinCompose.get().pluginId)
+
 }
 
 android {
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.navigation.compose)
     implementation(libs.remote.creation.core)
+    implementation(libs.androidx.material3)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
@@ -84,7 +86,10 @@ dependencies {
     // Baseline Profile Installer
     implementation("androidx.profileinstaller:profileinstaller:1.3.1")
 
+    // Hilt
+
+
+
     // Compose Preview (debug only)
     debugImplementation("androidx.compose.ui:ui-tooling:1.6.1")
-
 }

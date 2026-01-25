@@ -3,12 +3,16 @@ package com.yosh.tv.presentation.screens
 import androidx.compose.material.icons.Icons
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.material.icons.filled.CalendarMonth
+import androidx.compose.material.icons.filled.Extension
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Update
+import androidx.compose.material.icons.filled.VideoLibrary
 
 
 enum class Screens (
     private val args: List<String>? = null,
     val isTabItem: Boolean = false,
-    val tabIcon : ImageVector? = null
+    val tabIcon : ImageVector? = null,
 ){
     Library(isTabItem = true),
     Browse(isTabItem = true),

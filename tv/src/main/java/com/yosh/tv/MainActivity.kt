@@ -21,6 +21,7 @@ import androidx.tv.material3.Surface
 import com.yosh.tv.presentation.App
 import com.yosh.tv.presentation.theme.KomiworldTVTheme
 
+
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalTvMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
