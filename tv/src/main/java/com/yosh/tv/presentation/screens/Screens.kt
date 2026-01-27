@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Extension
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Update
 import androidx.compose.material.icons.filled.VideoLibrary
 
@@ -20,7 +21,7 @@ enum class Screens (
     History(isTabItem = true),
     Dashboard,
     Calendar(isTabItem = true, tabIcon = Icons.Default.CalendarMonth),
-    Profile;
+    Settings(isTabItem = true, tabIcon = Icons.Default.Settings),;
 
 
     operator fun invoke(): String {

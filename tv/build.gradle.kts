@@ -40,6 +40,22 @@ android {
 }
 
 dependencies {
+    //modules
+    implementation(projects.i18n)
+    implementation(projects.i18nAniyomi)
+    // TAIL
+    implementation(projects.i18nTail)
+    // TAIL
+    implementation(projects.core.archive)
+    implementation(projects.core.common)
+    implementation(projects.coreMetadata)
+    implementation(projects.sourceApi)
+    implementation(projects.sourceLocal)
+    implementation(projects.data)
+    implementation(projects.domain)
+    implementation(projects.presentationCore)
+    implementation(projects.presentationWidget)
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(platform(libs.compose.bom))

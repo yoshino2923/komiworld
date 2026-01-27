@@ -15,7 +15,7 @@ import androidx.tv.material3.*
 
 
 @Composable
-fun TvAnimeExtensionsScreen(
+fun TvAnimeExtensionsScreen1(
     state: TvAnimeExtensionsState,
     modifier: Modifier = Modifier,
     onClickUpdateAll: () -> Unit,

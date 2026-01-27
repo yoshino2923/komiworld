@@ -44,12 +44,10 @@ import com.yosh.tv.presentation.screens.Screens
 import com.yosh.tv.presentation.screens.browse.BrowseScreen
 import com.yosh.tv.presentation.screens.library.LibraryScreen
 import com.yosh.tv.presentation.screens.history.HistoryScreen
-import com.yosh.tv.presentation.screens.profile.ProfileScreen
 import com.yosh.tv.presentation.screens.updates.UpdatesScreen
 import com.yosh.tv.presentation.screens.calendar.CalendarScreen
+import com.yosh.tv.presentation.screens.profile.SettingsScreen
 import com.yosh.tv.presentation.utils.Padding
-import kotlin.collections.get
-import kotlin.invoke
 
 val ParentPadding = PaddingValues(vertical = 16.dp, horizontal = 58.dp)
 
@@ -212,8 +210,8 @@ private fun Body(
         navController = navController,
         startDestination = Screens.Library(),
     ) {
-        composable(Screens.Profile()) {
-            ProfileScreen()
+        composable(Screens.Settings()) {
+            SettingsScreen()
         }
         composable(Screens.Library()) {
             LibraryScreen()
