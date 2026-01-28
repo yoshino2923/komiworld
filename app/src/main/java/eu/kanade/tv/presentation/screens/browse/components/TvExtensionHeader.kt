@@ -16,13 +16,21 @@ import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Surface
 import androidx.tv.material3.SurfaceDefaults
 import androidx.tv.material3.Text
+import eu.kanade.tachiyomi.ui.browse.anime.extension.AnimeExtensionUiModel
+import tachiyomi.i18n.MR
+import tachiyomi.presentation.core.i18n.stringResource
 
 @Composable
-private fun TvExtensionHeader(
-    text: String,
+fun TvExtensionHeader(
+    header: AnimeExtensionUiModel.Header,
     showUpdateAll: Boolean,
     onClickUpdateAll: () -> Unit,
 ) {
+    val text = when (header) {
+        is AnimeExtensionUiModel.Header.Text -> header.text
+        is AnimeExtensionUiModel.Header.Resource -> stringResource(header.textRes)
+    }
+
     Surface(
         shape = RoundedCornerShape(12.dp),
         tonalElevation = 3.dp,
@@ -53,3 +61,11 @@ private fun TvExtensionHeader(
         }
     }
 }
+
+fun headerKey(header: AnimeExtensionUiModel.Header): String = when (header) {
+    is AnimeExtensionUiModel.Header.Text -> "h-text-${header.text}"
+    is AnimeExtensionUiModel.Header.Resource -> "h-res-${header.textRes.hashCode()}"
+}
+
+fun isUpdatesHeader(header: AnimeExtensionUiModel.Header): Boolean =
+    header is AnimeExtensionUiModel.Header.Resource && header.textRes == MR.strings.ext_updates_pending
