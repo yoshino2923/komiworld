@@ -1,11 +1,11 @@
 plugins {
-    id("mihon.android.application")
-    id("mihon.android.application.compose")
-    id("com.github.zellius.shortcut-helper")
-    kotlin("plugin.serialization")
-    alias(libs.plugins.aboutLibraries)
-    id("com.github.ben-manes.versions")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    // se serve compose:
+    id("org.jetbrains.kotlin.plugin.compose")
 }
+
 
 android {
     namespace = "com.yosh.tv_core"
@@ -13,8 +13,12 @@ android {
         version = release(36)
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         //consumerProguardFiles("consumer-rules.pro")

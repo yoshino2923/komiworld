@@ -1,4 +1,4 @@
-package com.yosh.tv.presentation.screens.browse.extension
+package eu.kanade.tv.presentation.screens.browse.extension
 
 import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.*

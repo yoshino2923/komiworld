@@ -56,9 +56,11 @@ dependencies {
     implementation(projects.domain)
     implementation(projects.presentationCore)
     implementation(projects.presentationWidget)
-    implementation(project(":tv-core"))
+    implementation(projects.tvCore)
+    implementation(libs.androidx.runtime)
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7")
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

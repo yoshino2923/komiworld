@@ -1,4 +1,4 @@
-package com.yosh.tv.presentation.screens.browse
+package eu.kanade.tv.presentation.screens.browse
 
 import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Arrangement
@@ -20,9 +20,9 @@ import androidx.tv.material3.Icon
 import androidx.tv.material3.ListItem
 import androidx.tv.material3.ListItemDefaults
 import androidx.tv.material3.Text
-import com.yosh.tv.presentation.screens.browse.ExampleAction
-import com.yosh.tv.presentation.screens.browse.ExamplesScreenWithDottedBackground
-import com.yosh.tv.presentation.screens.browse.repos.TvExtensionReposScreen
+import eu.kanade.tv.presentation.screens.browse.ExampleAction
+import eu.kanade.tv.presentation.screens.browse.ExamplesScreenWithDottedBackground
+import eu.kanade.tv.presentation.screens.browse.repos.TvExtensionReposScreen
 
 
 @Composable
