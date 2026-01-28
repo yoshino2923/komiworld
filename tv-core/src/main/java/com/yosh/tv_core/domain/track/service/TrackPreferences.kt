@@ -1,0 +1,61 @@
+package com.yosh.tv_core.domain.track.service
+
+import com.yosh.tv_core.domain.track.model.AutoTrackState
+import com.yosh.tv_core.tachiyomi.data.track.Tracker
+import com.yosh.tv_core.tachiyomi.data.track.anilist.Anilist
+import tachiyomi.core.common.preference.Preference
+import tachiyomi.core.common.preference.PreferenceStore
+import tachiyomi.core.common.preference.getEnum
+
+class TrackPreferences(
+    private val preferenceStore: PreferenceStore,
+) {
+
+    fun trackUsername(tracker: Tracker) = preferenceStore.getString(
+        Preference.privateKey("pref_mangasync_username_${tracker.id}"),
+        "",
+    )
+
+    fun trackPassword(tracker: Tracker) = preferenceStore.getString(
+        Preference.privateKey("pref_mangasync_password_${tracker.id}"),
+        "",
+    )
+
+    fun trackAuthExpired(tracker: Tracker) = preferenceStore.getBoolean(
+        Preference.privateKey("pref_tracker_auth_expired_${tracker.id}"),
+        false,
+    )
+
+    fun setCredentials(tracker: Tracker, username: String, password: String) {
+        trackUsername(tracker).set(username)
+        trackPassword(tracker).set(password)
+        trackAuthExpired(tracker).set(false)
+    }
+
+    fun trackToken(tracker: Tracker) = preferenceStore.getString(Preference.privateKey("track_token_${tracker.id}"), "")
+
+    fun trackApiKey(tracker: Tracker) = preferenceStore.getString(
+        Preference.privateKey("track_api_key_${tracker.id}"),
+        "",
+    )
+
+    fun setApiKey(tracker: Tracker, apiKey: String) {
+        trackApiKey(tracker).set(apiKey)
+    }
+
+    fun anilistScoreType() = preferenceStore.getString("anilist_score_type", Anilist.POINT_10)
+
+    fun autoUpdateTrack() = preferenceStore.getBoolean("pref_auto_update_manga_sync_key", true)
+
+    fun trackOnAddingToLibrary() = preferenceStore.getBoolean("track_on_adding_to_library", true)
+
+    fun showNextEpisodeAiringTime() = preferenceStore.getBoolean(
+        "show_next_episode_airing_time",
+        true,
+    )
+
+    fun autoUpdateTrackOnMarkRead() = preferenceStore.getEnum(
+        "pref_auto_update_manga_on_mark_read",
+        AutoTrackState.ALWAYS,
+    )
+}

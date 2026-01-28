@@ -22,8 +22,6 @@ import androidx.tv.material3.ListItemDefaults
 import androidx.tv.material3.Text
 import com.yosh.tv.presentation.screens.browse.ExampleAction
 import com.yosh.tv.presentation.screens.browse.ExamplesScreenWithDottedBackground
-import com.yosh.tv.presentation.screens.browse.extension.TvAnimeExtensionsScreen
-import com.yosh.tv.presentation.screens.browse.extension.fakeStateForTvAnimeExtensionScreen
 
 
 @Composable
@@ -78,18 +76,7 @@ fun BrowseScreen() {
         ),
         ExampleAction(
             title = "All extensions",
-            content = {
-                TvAnimeExtensionsScreen(
-                    state = fakeStateForTvAnimeExtensionScreen(),
-                    onClickUpdateAll = {},
-                    onRefresh = {},
-                    onClickItem = {},
-                    onLongClickItem = {},
-                    onClickCancel = {},
-                    onClickPrimaryAction = {},
-                    onClickSecondaryAction = {},
-                )
-            }
+            content = {}
         ),
     )
 

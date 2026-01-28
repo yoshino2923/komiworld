@@ -1,0 +1,13 @@
+package com.yosh.tv_core.tachiyomi.data.track.simkl.dto
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class SimklUser(
+    val account: SimklUserAccount,
+)
+
+@Serializable
+data class SimklUserAccount(
+    val id: Int,
+)

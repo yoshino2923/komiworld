@@ -10,8 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.tv.material3.DenseListItem
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
-import com.yosh.tv.presentation.model.extension.anime.model.AnimeExtension
-import com.yosh.tv.presentation.model.extension.InstallStep
+import com.yosh.tv_core.tachiyomi.extension.anime.model.AnimeExtension
 
 @Composable
 fun TvBrowseItem(
